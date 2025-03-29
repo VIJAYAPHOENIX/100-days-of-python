@@ -27,7 +27,8 @@ menu = {
 resources ={
     "water":500,
     "milk":300,
-    "coffee":100
+    "coffee":100,
+    "cash":0
 }
 
 def coin_counter():
@@ -44,9 +45,7 @@ def coin_counter():
     return total
 
 def change(total,pick):
-    if total == menu[pick]["cost"]:
-        return "perfect change"
-    elif total > menu[pick]["cost"]:
+    if total == menu[pick]["cost"] or total > menu[pick]["cost"]:
         remain = total -menu[pick]["cost"]
         return f"your change {remain} cents"
     else:
@@ -93,6 +92,10 @@ while is_on:
         amount = coin_counter()
         if amount ==0:
             print("invalid amount")
-        print(amount)
-        print(change(amount,choice))
+        else:
+            print(amount)
+            print(change(amount,choice))
+
+        if coffee_status == True and amount >= menu[choice]['cost']:
+            resources['cash'] += menu[choice]['cost']
 
