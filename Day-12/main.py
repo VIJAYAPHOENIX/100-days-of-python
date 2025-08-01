@@ -10,14 +10,14 @@
 
 # # Global scope variable is very hard to modify in a function . Because it can rise errors.But if you want to use a global variable in a local function.we use keyword "global"
 
-enemies = 1
+# enemies = 1
 
-def game():
-    global enemies
-    enemies +=2
-    return enemies
+# def game():
+#     global enemies
+#     enemies +=2
+#     return enemies
 
-print(game())
+# print(game())
 
 # Global constants is all in capitals that there values never gonna change
 
